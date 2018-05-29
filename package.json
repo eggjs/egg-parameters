@@ -6,7 +6,7 @@
   "eggPlugin": {
     "name": "parameters"
   },
-  "repository": "git@github.com:huacnlee/egg-parameters.git",
+  "repository": "git@github.com:eggjs/egg-parameters.git",
   "author": "Jason Lee <huacnlee@gmail.com>",
   "license": "MIT",
   "private": false,
