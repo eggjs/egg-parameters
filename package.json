@@ -1,0 +1,29 @@
+{
+  "name": "egg-parameters",
+  "version": "0.0.1",
+  "description": "Merge ctx.params, ctx.request.query, ctx.request.body into ctx.params\"",
+  "main": "app.js",
+  "eggPlugin": {
+    "name": "parameters"
+  },
+  "repository": "git@github.com:huacnlee/egg-parameters.git",
+  "author": "Jason Lee <huacnlee@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "test": "egg-bin test",
+    "cov": "egg-bin cov",
+    "ci": "npm run cov",
+    "autod": "autod"
+  },
+  "dependencies": {
+    "underscore": "^1.9.0"
+  },
+  "devDependencies": {
+    "egg": "next",
+    "egg-bin": "^4.3.5",
+    "egg-ci": "^1.8.0",
+    "egg-mock": "^3.13.1",
+    "power-assert": "^1.5.0"
+  }
+}
