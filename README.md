@@ -1,6 +1,8 @@
 egg-parameters
 --------------
 
+[![Build Status](https://travis-ci.org/huacnlee/egg-parameters.svg?branch=master)](https://travis-ci.org/huacnlee/egg-parameters)
+
 Merge all parameters (ctx.params, ctx.request.query, ctx.request.body) into `ctx.params` like Rails application.
 
 ## Configuration
