@@ -7,6 +7,7 @@ describe('test/parameters.test.js', () => {
     it('should work', function* () {
       res = yield request.get('/hello/huacnlee?age=1&bad_key=foo');
       assert.equal(200, res.status);
+      assert.equal('true', res.headers['permitted']);
       assert.equal(null, res.body.bad_key);
       assert.deepEqual({ name: 'huacnlee', age: '1' }, res.body);
     });
