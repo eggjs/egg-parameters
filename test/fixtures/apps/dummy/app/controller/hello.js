@@ -1,5 +1,7 @@
 'use strict';
 
 module.exports = async ctx => {
-  ctx.body = ctx.params;
+  const helloParam = ctx.params.permit('name', 'age', 'location');
+
+  ctx.body = helloParam;
 }
