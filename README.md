@@ -7,6 +7,15 @@ Merge all parameters (ctx.params, ctx.request.query, ctx.request.body) into `ctx
 
 ## Configuration
 
+config/plugin.js
+
+```js
+exports.parameters = {
+  enable: true,
+  package: 'egg-parameters',
+};
+```
+
 config/config.default.js
 
 ```js
