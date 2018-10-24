@@ -27,7 +27,7 @@ module.exports = function() {
 
     ctx._setParameters(params);
 
-    ctx.logger.info('[parameters]', _.omit(ctx.params, ...filterParameters));
+    ctx.logger.info('[parameters]', JSON.stringify(_.omit(ctx.params, ...filterParameters)));
 
     yield next;
   };
