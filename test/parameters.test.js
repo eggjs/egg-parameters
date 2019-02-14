@@ -1,26 +1,37 @@
 'use strict';
 
+const mm = require('egg-mock');
+const assert = require('assert');
+
 describe('test/parameters.test.js', () => {
-  let res;
+  let app;
+
+  before(() => {
+    app = mm.app({ baseDir: 'apps/dummy', plugin: 'dummy' });
+    return app.ready();
+  });
+  after(() => app.close());
 
   describe('GET /hello', () => {
     it('should work', function* () {
-      res = yield request.get('/hello/huacnlee?age=1&bad_key=foo');
+      const res = yield app.httpRequest()
+        .get('/hello/huacnlee?age=1&bad_key=foo');
       assert.equal(200, res.status);
-      assert.equal('true', res.headers['permitted']);
+      assert.equal('true', res.headers.permitted);
       assert.equal(null, res.body.bad_key);
-      assert.deepEqual({ name: 'huacnlee', age: '1' }, res.body);
+      assert.deepStrictEqual({ name: 'huacnlee', age: '1' }, res.body);
     });
 
     it('should work for post body', function* () {
-      res = yield request.post('/hello/monster?age=100&name=foo').send({
-        name: 'foo1',
-        location: 'Chengdu',
-        user_id: 123,
-      });
-
+      const res = yield app.httpRequest()
+        .post('/hello/monster?age=100&name=foo')
+        .send({
+          name: 'foo1',
+          location: 'Chengdu',
+          user_id: 123,
+        });
       assert.equal(200, res.status);
-      assert.deepEqual({ name: 'monster', age: '100', location: 'Chengdu' }, res.body);
+      assert.deepStrictEqual({ name: 'monster', age: '100', location: 'Chengdu' }, res.body);
     });
   });
 });

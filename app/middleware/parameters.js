@@ -1,34 +1,27 @@
 'use strict';
 
 const _ = require('underscore');
+const permit = require('../../lib/strong_parameters');
 
-module.exports = function() {
-  return function* parameters(next) {
-    const ctx = this;
-    const params = ctx.params || {};
-    const filterParameters = ctx.app.config.parameters.filterParameters || [];
-
+module.exports = options => {
+  return async function parameters(ctx, next) {
+    const params = ctx.params;
     for (const key in ctx.query) {
-      if (!(key in params)) {
-        params[key] = ctx.query[key];
-      }
+      if (!(key in params)) params[key] = ctx.query[key];
     }
 
     for (const key in ctx.request.body) {
-      if (['_csrf', '_method'].indexOf(key) !== -1) {
-        continue;
-      }
-      if (!(key in params)) {
-        params[key] = ctx.request.body[key];
-      }
+      if (key === '_csrf' || key === '_method') continue;
+      if (!(key in params)) params[key] = ctx.request.body[key];
     }
 
-    params.permit = require('../../lib/strong_parameters');
+    params.permit = permit;
+    ctx.params = params;
+    if (options.logParameters) {
+      const filterParameters = options.filterParameters || [];
+      ctx.coreLogger.info('[parameters] %j', _.omit(ctx.params, ...filterParameters));
+    }
 
-    ctx._setParameters(params);
-
-    ctx.logger.info('[parameters]', _.omit(ctx.params, ...filterParameters));
-
-    yield next;
+    await next();
   };
 };
