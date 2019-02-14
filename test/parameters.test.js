@@ -24,6 +24,15 @@ describe('test/parameters.test.js', () => {
       assert.deepStrictEqual({ name: 'huacnlee', age: '1' }, res.body);
     });
 
+    it('should work with multi keys', async () => {
+      const res = await app.httpRequest()
+        .get('/keys/huacnlee?age=1&bad_key=foo&name=123123&gogo=11');
+      assert.equal(200, res.status);
+      assert.equal('true', res.headers.permitted);
+      assert.equal(null, res.body.bad_key);
+      assert.deepStrictEqual({ name: 'huacnlee', age: '1', gogo: '11' }, res.body);
+    });
+
     it('should work for post body', async () => {
       app.mockLog();
       const res = await app.httpRequest()
