@@ -50,17 +50,20 @@ When you add `egg-parameters` into your `package.json` this will enabled by defa
 
 ```js
 // app/controller/posts.js
-/**
- * POST /posts?title=jason&foo=1&user_id=123
- */
-exports.create = async ctx => {
-  const postParam = ctx.params.permit('title', 'body')
+module.exports = class {
+  /**
+   * POST /posts?title=jason&foo=1&user_id=123
+   */
+  async create() {
+    const { ctx } = this;
+    const postParam = ctx.params.permit('title', 'body')
 
-  // postParam => { title: '', body: '' }
-  // postParam.isPermitted() => true
-  // :foo, :user_id will be filted
+    // postParam => { title: '', body: '' }
+    // postParam.isPermitted() => true
+    // :foo, :user_id will be filted
 
-  // Now you can use safely for egg-sequelize create param
-  const post = await ctx.model.Post.create(postParam);
+    // Now you can use safely for egg-sequelize create param
+    const post = await ctx.model.Post.create(postParam);
+  }
 };
 ```
