@@ -4,7 +4,7 @@ const permit = require('../../lib/strong_parameters');
 
 module.exports = options => {
   return async function parameters(ctx, next) {
-    const params = ctx.params;
+    const params = ctx.params || {};
     for (const key in ctx.query) {
       if (!(key in params)) params[key] = ctx.query[key];
     }
