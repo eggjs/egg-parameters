@@ -25,7 +25,7 @@ module.exports = function() {
 
     params.permit = require('../../lib/strong_parameters');
 
-    ctx._setParameters(params);
+    ctx.params = params;
 
     ctx.logger.info('[parameters] %j', _.omit(ctx.params, ...filterParameters));
 
