@@ -1,5 +1,11 @@
 'use strict';
 
-module.exports = app => {
-  app.config.coreMiddleware.push('parameters');
+module.exports = class {
+  constructor(app) {
+    this.app = app;
+  }
+
+  configDidLoad() {
+    this.app.config.coreMiddleware.push('parameters');
+  }
 };
