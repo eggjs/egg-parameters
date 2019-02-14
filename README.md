@@ -64,6 +64,7 @@ module.exports = class {
 
     // Now you can use safely for egg-sequelize create param
     const post = await ctx.model.Post.create(postParam);
+    ctx.body = post;
   }
 };
 ```
