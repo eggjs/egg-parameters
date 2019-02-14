@@ -1,4 +1,10 @@
 
+1.0.3 / 2019-02-14
+==================
+
+**fixes**
+  * [[`4627560`](http://github.com/eggjs/egg-parameters/commit/4627560865c308dade185d631658b68246af68a1)] - fix: should check key exists or not (fengmk2 <<fengmk2@gmail.com>>)
+
 1.0.2 / 2019-02-14
 ==================
 
