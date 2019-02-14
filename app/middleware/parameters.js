@@ -1,6 +1,5 @@
 'use strict';
 
-const _ = require('underscore');
 const permit = require('../../lib/strong_parameters');
 
 module.exports = options => {
@@ -19,7 +18,12 @@ module.exports = options => {
     ctx.params = params;
     if (options.logParameters) {
       const filterParameters = options.filterParameters || [];
-      ctx.coreLogger.info('[parameters] %j', _.omit(ctx.params, ...filterParameters));
+      const printParams = {};
+      for (const k in params) {
+        if (filterParameters.includes(k)) continue;
+        printParams[k] = params[k];
+      }
+      ctx.coreLogger.info('[parameters] %j', printParams);
     }
 
     await next();
