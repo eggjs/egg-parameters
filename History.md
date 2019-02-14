@@ -1,4 +1,13 @@
 
+1.0.1 / 2019-02-14
+==================
+
+**fixes**
+  * [[`52d0b68`](http://github.com/eggjs/egg-parameters/commit/52d0b68cd2188de0a7b8f19641cb95a9e13d7319)] - fix: params.permit support array params (#4) (fengmk2 <<fengmk2@gmail.com>>)
+
+**others**
+  * [[`e126062`](http://github.com/eggjs/egg-parameters/commit/e126062835d413ab0c7f5701e24b549173491b9a)] - chore: use History.md (fengmk2 <<fengmk2@gmail.com>>)
+
 1.0.0 / 2019-02-14
 ==================
 
