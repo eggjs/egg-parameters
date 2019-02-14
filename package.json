@@ -1,6 +1,6 @@
 {
   "name": "egg-parameters",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Merge ctx.params, ctx.request.query, ctx.request.body into ctx.params\"",
   "files": [
     "app",

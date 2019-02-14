@@ -1,4 +1,10 @@
 
+1.0.2 / 2019-02-14
+==================
+
+**fixes**
+  * [[`c001463`](http://github.com/eggjs/egg-parameters/commit/c0014630170a296cc40f18172b5819f1a8d327a5)] - fix: no need params extend now (#5) (fengmk2 <<fengmk2@gmail.com>>)
+
 1.0.1 / 2019-02-14
 ==================
 
