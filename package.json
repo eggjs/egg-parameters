@@ -1,6 +1,6 @@
 {
   "name": "egg-parameters",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Merge ctx.params, ctx.request.query, ctx.request.body into ctx.params\"",
   "files": [
     "app",
@@ -24,9 +24,7 @@
     "autod": "autod -w --prefix ^",
     "lint": "eslint ."
   },
-  "dependencies": {
-
-  },
+  "dependencies": {},
   "devDependencies": {
     "autod": "^3.0.1",
     "egg": "^2.10.0",
