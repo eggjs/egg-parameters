@@ -23,7 +23,7 @@ module.exports = options => {
         if (filterParameters.includes(k)) continue;
         printParams[k] = params[k];
       }
-      ctx.coreLogger.info('[parameters] %j', printParams);
+      ctx.coreLogger.info('[parameters] %j, content-type: %j', printParams, ctx.get('content-type'));
     }
 
     await next();
