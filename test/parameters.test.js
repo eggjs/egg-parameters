@@ -25,12 +25,14 @@ describe('test/parameters.test.js', () => {
     });
 
     it('should work with multi keys', async () => {
+      app.mockLog();
       const res = await app.httpRequest()
         .get('/keys/huacnlee?age=1&bad_key=foo&name=123123&gogo=11');
       assert.equal(200, res.status);
       assert.equal('true', res.headers.permitted);
       assert.equal(null, res.body.bad_key);
       assert.deepStrictEqual({ name: 'huacnlee', age: '1', gogo: '11' }, res.body);
+      app.expectLog('GET /hello/huacnlee?age=1&bad_key=foo&name=123123] [parameters] {"age":"1","bad_key":"foo","name":"123123"}, content-type: ""', 'coreLogger');
     });
 
     it('should work for post body', async () => {
@@ -65,7 +67,7 @@ describe('test/parameters.test.js', () => {
         });
       assert.equal(200, res.status);
       assert.deepStrictEqual({ name: 'monster', age: '110', location: 'Chengdu' }, res.body);
-      app.expectLog('POST /hello/monster?age=110&name=foo] [parameters] {"age":"110","name":"foo","location":"Chengdu","user_id":123,"password":"123123"}', 'coreLogger');
+      app.expectLog('POST /hello/monster?age=110&name=foo] [parameters] {"age":"110","name":"foo","location":"Chengdu","user_id":123,"password":"123123"}, content-type: "application/json"', 'coreLogger');
     });
 
     it('should ignore log', async () => {
