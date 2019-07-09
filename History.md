@@ -1,4 +1,10 @@
 
+1.1.0 / 2019-07-09
+==================
+
+**features**
+  * [[`70a01c8`](http://github.com/eggjs/egg-parameters/commit/70a01c845b58d2e74eb6d69e986bed60dfb01abd)] - feat: print request content-type (#6) (fengmk2 <<fengmk2@gmail.com>>)
+
 1.0.3 / 2019-02-14
 ==================
 
