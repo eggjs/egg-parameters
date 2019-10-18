@@ -20,7 +20,12 @@ module.exports = options => {
       const filterParameters = options.filterParameters || [];
       const printParams = {};
       for (const k in params) {
-        if (filterParameters.includes(k)) continue;
+        if (filterParameters.includes(k)) {
+          const type = typeof params[k];
+          const length = type === 'string' ? ` ${type.length}` : '';
+          printParams[k] = `<${type}${length}>`;
+          continue;
+        }
         printParams[k] = params[k];
       }
       ctx.coreLogger.info('[parameters] %j, content-type: %j', printParams, ctx.get('content-type'));
