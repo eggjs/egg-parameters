@@ -22,7 +22,7 @@ module.exports = options => {
       for (const k in params) {
         if (filterParameters.includes(k)) {
           const type = typeof params[k];
-          const length = type === 'string' ? ` ${type.length}` : '';
+          const length = type === 'string' ? ` ${params[k].length}` : '';
           printParams[k] = `<${type}${length}>`;
           continue;
         }

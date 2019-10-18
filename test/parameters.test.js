@@ -45,11 +45,11 @@ describe('test/parameters.test.js', () => {
           name: 'foo1',
           location: 'Chengdu',
           user_id: 123,
-          password: '123123', // ignore password in logger
+          password: '1231234', // ignore password in logger
         });
       assert.equal(200, res.status);
       assert.deepStrictEqual({ name: 'monster', age: '100', location: 'Chengdu' }, res.body);
-      app.expectLog('POST /hello/monster?age=100&name=foo] [parameters] {"age":"100","name":"foo","location":"Chengdu","user_id":123,"password":"<string 6>"}', 'coreLogger');
+      app.expectLog('POST /hello/monster?age=100&name=foo] [parameters] {"age":"100","name":"foo","location":"Chengdu","user_id":123,"password":"<string 7>"}', 'coreLogger');
     });
 
     it('should print password', async () => {
