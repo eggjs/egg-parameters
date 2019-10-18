@@ -1,4 +1,10 @@
 
+1.1.2 / 2019-10-18
+==================
+
+**fixes**
+  * [[`364fd96`](http://github.com/eggjs/egg-parameters/commit/364fd960540a8b0ff59722dec5d257f69bd0e3eb)] - fix: fix log filter params' length (deadhorse <<deadhorse@deadhorse-8.local>>)
+
 1.1.1 / 2019-10-18
 ==================
 
