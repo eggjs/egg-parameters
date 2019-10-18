@@ -49,7 +49,7 @@ describe('test/parameters.test.js', () => {
         });
       assert.equal(200, res.status);
       assert.deepStrictEqual({ name: 'monster', age: '100', location: 'Chengdu' }, res.body);
-      app.expectLog('POST /hello/monster?age=100&name=foo] [parameters] {"age":"100","name":"foo","location":"Chengdu","user_id":123}', 'coreLogger');
+      app.expectLog('POST /hello/monster?age=100&name=foo] [parameters] {"age":"100","name":"foo","location":"Chengdu","user_id":123,"password":"<string 6>"}', 'coreLogger');
     });
 
     it('should print password', async () => {
