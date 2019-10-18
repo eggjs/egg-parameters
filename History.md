@@ -1,4 +1,10 @@
 
+1.1.1 / 2019-10-18
+==================
+
+**fixes**
+  * [[`d77b9e0`](http://github.com/eggjs/egg-parameters/commit/d77b9e07e37b2a4a11a6fd9dd7ee28fdb74b7cda)] - fix: log filter params' type and length (#7) (Yiyu He <<dead_horse@qq.com>>)
+
 1.1.0 / 2019-07-09
 ==================
 
