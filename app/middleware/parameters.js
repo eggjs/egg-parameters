@@ -1,6 +1,6 @@
 'use strict';
 
-const permit = require('../../lib/strong_parameters');
+const Model = require('../../lib/params');
 
 module.exports = options => {
   return async function parameters(ctx, next) {
@@ -14,8 +14,7 @@ module.exports = options => {
       if (!(key in params)) params[key] = ctx.request.body[key];
     }
 
-    params.permit = permit;
-    ctx.params = params;
+    ctx.params = new Model(params);
     if (options.logParameters) {
       const filterParameters = options.filterParameters || [];
       const printParams = {};

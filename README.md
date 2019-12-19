@@ -56,7 +56,7 @@ module.exports = class {
    */
   async create() {
     const { ctx } = this;
-    const postParam = ctx.params.permit('title', 'body')
+    const postParam = ctx.params.permit('title', 'body');
 
     // postParam => { title: '', body: '' }
     // postParam.isPermitted() => true
