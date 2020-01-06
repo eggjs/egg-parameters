@@ -19,7 +19,6 @@ describe('test/parameters.test.js', () => {
       const res = await app.httpRequest()
         .get('/hello/huacnlee?age=1&bad_key=foo&name=123123');
       assert.equal(200, res.status);
-      assert.equal('true', res.headers.permitted);
       assert.equal(null, res.body.bad_key);
       assert.deepStrictEqual({ name: 'huacnlee', age: '1' }, res.body);
     });
@@ -29,7 +28,6 @@ describe('test/parameters.test.js', () => {
       const res = await app.httpRequest()
         .get('/keys/huacnlee?age=1&bad_key=foo&name=123123&gogo=11');
       assert.equal(200, res.status);
-      assert.equal('true', res.headers.permitted);
       assert.equal(null, res.body.bad_key);
       assert.deepStrictEqual({ name: 'huacnlee', age: '1', gogo: '11' }, res.body);
       app.expectLog('GET /hello/huacnlee?age=1&bad_key=foo&name=123123] [parameters] {"age":"1","bad_key":"foo","name":"123123"}, content-type: ""', 'coreLogger');
